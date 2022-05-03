@@ -16,7 +16,7 @@ import Grid from "@mui/material/Grid";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import logo from "../assets/logo.png";
-import etherscan from "../assets/images/link/etherscan.png";
+import etherscan from "../assets/images/link/polygon.png";
 import telegram from "../assets/images/link/telegram.png";
 import twitter from "../assets/images/link/twitter.png";
 import pdf from "../assets/whitePaper.pdf";
@@ -265,7 +265,7 @@ function Main(props) {
                     <Card sx={{ width: "90%", pb: 0 }} className="mCard">
                         <CardContent>
                             <Typography variant="h5" gutterBottom component="div" sx={{ borderBottom: "solid 6px", pb: 1 }}>
-                                Havest Facts
+                                Harvest Facts
                             </Typography>
                             <Grid container sx={{ mt: 1 }}>
                                 <Grid item xs={12} sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -326,13 +326,13 @@ function Main(props) {
                 </Grid>
             </Grid>
             <Box sx={{ display: "flex", justifyContent: "center", my: 8 }}>
-                <a href="https://bscscan.com/address/0x1919cdf51ccfd0fa3c2fa0685dbacae634dc6f35" target="_blank">
+                <a href="" target="_blank">
                     <img src={etherscan} />
                 </a>
-                <a href="https://t.me/TreePlantation2022" target="_blank">
+                <a href="" target="_blank">
                     <img src={telegram} style={{ margin: "auto 15px" }} />
                 </a>
-                <a href="https://twitter.com/TreePlantation_" target="_blank">
+                <a href="" target="_blank">
                     <img src={twitter} />
                 </a>
             </Box>
