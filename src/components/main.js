@@ -140,7 +140,11 @@ function Main(props) {
                     <a href={pdf} target="_blank" className="customButton">
                         White Paper
                     </a>
-                    <a href="https://coinsult.net/projects/treeplantation/" target="_blank" className="customButton">
+                    <a
+                        href="https://docs.google.com/document/d/1vqN9GZXSc8bmoPhOLAvl2ri90HTr3FCSevjDqZ8DPmM/edit"
+                        target="_blank"
+                        className="customButton"
+                    >
                         Audit Report
                     </a>
                 </Box>
