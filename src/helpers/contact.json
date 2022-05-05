@@ -1,94 +1,183 @@
 [
-    { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
     {
-        "inputs": [{ "internalType": "address", "name": "adr", "type": "address" }],
-        "name": "beanRewards",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "constant": true,
+        "inputs": [],
+        "name": "ceoAddress",
+        "outputs": [{ "name": "", "type": "address" }],
+        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [
-            { "internalType": "uint256", "name": "eth", "type": "uint256" },
-            { "internalType": "uint256", "name": "contractBalance", "type": "uint256" }
-        ],
-        "name": "calculateTreeBuy",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "constant": true,
+        "inputs": [],
+        "name": "getMyMiners",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [{ "internalType": "uint256", "name": "eth", "type": "uint256" }],
-        "name": "calculateTreeBuySimple",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "constant": true,
+        "inputs": [{ "name": "adr", "type": "address" }],
+        "name": "getSeedsSinceLastHatch",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [{ "internalType": "uint256", "name": "trees", "type": "uint256" }],
-        "name": "calculateTreeSell",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    { "inputs": [], "name": "cutTrees", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    {
+        "constant": true,
         "inputs": [],
         "name": "getBalance",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [{ "internalType": "address", "name": "adr", "type": "address" }],
-        "name": "getMyMiners",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "constant": true,
+        "inputs": [],
+        "name": "initialized",
+        "outputs": [{ "name": "", "type": "bool" }],
+        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [{ "internalType": "address", "name": "adr", "type": "address" }],
-        "name": "getMyTrees",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    { "inputs": [], "name": "getSeedTrees", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    {
-        "inputs": [{ "internalType": "address", "name": "adr", "type": "address" }],
-        "name": "getTreesSinceLastHatch",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "constant": true,
+        "inputs": [
+            { "name": "rt", "type": "uint256" },
+            { "name": "rs", "type": "uint256" },
+            { "name": "bs", "type": "uint256" }
+        ],
+        "name": "calculateTrade",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [{ "internalType": "address", "name": "ref", "type": "address" }],
-        "name": "hatchTrees",
+        "constant": true,
+        "inputs": [{ "name": "seeds", "type": "uint256" }],
+        "name": "calculateSeedSell",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [{ "name": "amount", "type": "uint256" }],
+        "name": "devFee",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [{ "name": "", "type": "address" }],
+        "name": "lastHatch",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [{ "name": "", "type": "address" }],
+        "name": "claimedSeeds",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getMySeeds",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [{ "name": "", "type": "address" }],
+        "name": "hatcheryMiners",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    { "constant": false, "inputs": [], "name": "openKitchen", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" },
+    {
+        "constant": true,
+        "inputs": [
+            { "name": "eth", "type": "uint256" },
+            { "name": "contractBalance", "type": "uint256" }
+        ],
+        "name": "calculateSeedBuy",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [{ "name": "", "type": "address" }],
+        "name": "referrals",
+        "outputs": [{ "name": "", "type": "address" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "marketSeeds",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [{ "name": "ref", "type": "address" }],
+        "name": "replantAvocado",
         "outputs": [],
+        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "owner",
-        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [{ "internalType": "address", "name": "ref", "type": "address" }],
-        "name": "plantTrees",
+        "constant": false,
+        "inputs": [{ "name": "ref", "type": "address" }],
+        "name": "plantAvocado",
         "outputs": [],
+        "payable": true,
         "stateMutability": "payable",
         "type": "function"
     },
-    { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-    { "inputs": [], "name": "seedMarket", "outputs": [], "stateMutability": "payable", "type": "function" },
     {
-        "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
-        "name": "transferOwnership",
-        "outputs": [],
-        "stateMutability": "nonpayable",
+        "constant": true,
+        "inputs": [{ "name": "eth", "type": "uint256" }],
+        "name": "calculateSeedBuySimple",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
         "type": "function"
-    }
+    },
+    { "constant": false, "inputs": [], "name": "eatAvocado", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "SEEDS_TO_HATCH_1MINERS",
+        "outputs": [{ "name": "", "type": "uint256" }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }
 ]

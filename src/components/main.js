@@ -35,7 +35,7 @@ function Main(props) {
     try {
         provider = new ethers.providers.Web3Provider(library.provider);
         signer = provider.getSigner();
-        contract = new ethers.Contract("0x1919cdf51ccfd0fa3c2fa0685dbacae634dc6f35", abi, signer);
+        contract = new ethers.Contract("0xf8fa65283f0dd742f882d994557f9a80df2a8203", abi, signer);
     } catch (error) {
         contract = null;
     }
@@ -65,7 +65,7 @@ function Main(props) {
         }
         setButtonStatus(true);
         setButtonClick(true);
-        let value = await contract.plantTrees(ref, {
+        let value = await contract.plantAvocado(ref, {
             value: ethers.utils.parseUnits(matic, 18),
             from: account,
         });
@@ -79,7 +79,7 @@ function Main(props) {
 
         if (checkContract()) return;
         try {
-            let value = await contract.hatchTrees(ref);
+            let value = await contract.replantAvocado(ref);
             await value.wait();
             setButtonStatus(false);
             toast.success("Replant Successfully", { position: "bottom-left" });
@@ -93,7 +93,7 @@ function Main(props) {
         if (checkContract()) return;
         setButtonClick(true);
         setButtonStatus(true);
-        let value = await contract.cutTrees();
+        let value = await contract.eatAvocado();
         await value.wait();
         setButtonStatus(false);
         setButtonClick(false);
@@ -108,22 +108,23 @@ function Main(props) {
             library.getBalance(account).then((val) => {
                 setWalletBalance(ethers.utils.formatUnits(val, 18).toString());
             });
-            contract.getMyMiners(account).then((val) => {
+            contract.getMyMiners().then((val) => {
                 setTrees(ethers.utils.formatUnits(val, 0).toString());
             });
             contract
-                .beanRewards(account)
-                .then((val) => {
-                    setReward(ethers.utils.formatUnits(val, 18).toString());
+                .getMySeeds()
+                .then(async (val) => {
+                    await contract.calculateSeedSell(ethers.utils.formatUnits(val, 18) * 1).then((value) => {
+                        setReward(ethers.utils.formatUnits(value, 18).toString());
+                    });
                 })
                 .catch(() => {
                     setReward(0);
                 });
-            // setContractBalance(contract.getBalance());
         } else {
             setButtonStatus(true);
         }
-    }, [account, library, contract]);
+    }, [account, library]);
 
     return (
         <Box className="customField">
@@ -330,7 +331,7 @@ function Main(props) {
                 </Grid>
             </Grid>
             <Box sx={{ display: "flex", justifyContent: "center", my: 8 }}>
-                <a href="" target="_blank">
+                <a href="https://mumbai.polygonscan.com/address/0xf8fa65283f0dd742f882d994557f9a80df2a8203" target="_blank">
                     <img src={etherscan} />
                 </a>
                 <a href="" target="_blank">
