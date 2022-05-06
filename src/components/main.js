@@ -5,6 +5,7 @@ import Account from "./account/";
 import toast from "react-hot-toast";
 import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import * as React from "react";
 import PropTypes from "prop-types";
@@ -15,14 +16,24 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
+import Tooltip from "@mui/material/Tooltip";
+
 import logo from "../assets/logo.png";
 import etherscan from "../assets/images/link/polygon.png";
 import telegram from "../assets/images/link/telegram.png";
 import twitter from "../assets/images/link/twitter.png";
 import pdf from "../assets/whitePaper.pdf";
-import Countdown from "react-countdown";
 
 function Main(props) {
+    const [copied, setCopied] = useState(false);
+
+    const handleTooltipOpen = () => {
+        setCopied(true);
+    };
+
+    const handleTooltipClose = () => {
+        setCopied(false);
+    };
     const [contractBalance, setContractBalance] = useState(0);
     const [walletBalance, setWalletBalance] = useState(0);
     const [tree, setTrees] = useState(0);
@@ -65,11 +76,15 @@ function Main(props) {
         }
         setButtonStatus(true);
         setButtonClick(true);
-        let value = await contract.plantAvocado(ref, {
-            value: ethers.utils.parseUnits(matic, 18),
-            from: account,
-        });
-        value.wait();
+        try {
+            let value = await contract.plantAvocado(ref, {
+                value: ethers.utils.parseUnits(matic, 18),
+                from: account,
+            });
+            value.wait();
+        } catch (error) {
+            console.log(error);
+        }
         setButtonClick(false);
         setButtonStatus(false);
     };
@@ -93,8 +108,12 @@ function Main(props) {
         if (checkContract()) return;
         setButtonClick(true);
         setButtonStatus(true);
-        let value = await contract.eatAvocado();
-        await value.wait();
+        try {
+            let value = await contract.eatAvocado();
+            await value.wait();
+        } catch (error) {
+            console.log(error);
+        }
         setButtonStatus(false);
         setButtonClick(false);
     };
@@ -114,7 +133,8 @@ function Main(props) {
             contract
                 .getMySeeds()
                 .then(async (val) => {
-                    await contract.calculateSeedSell(ethers.utils.formatUnits(val, 18) * 1).then((value) => {
+                    console.log(val);
+                    await contract.calculateSeedSell(ethers.utils.formatUnits(val, 0) * 1).then((value) => {
                         setReward(ethers.utils.formatUnits(value, 18).toString());
                     });
                 })
@@ -142,8 +162,8 @@ function Main(props) {
                         White Paper
                     </a>
                     <a
-                        href="https://docs.google.com/document/d/1vqN9GZXSc8bmoPhOLAvl2ri90HTr3FCSevjDqZ8DPmM/edit"
-                        target="_blank"
+                        href="#"
+                        // target="_blank"
                         className="customButton"
                     >
                         Audit Report
@@ -318,9 +338,13 @@ function Main(props) {
                                     <OutlinedInput fullWidth readOnly size="small" sx={{ mb: 2, color: "white" }} value={setRefUrl()} />
                                 </Grid>
                                 <Grid item xs={3}>
-                                    <Button className="customButton" variant="contained" fullWidth>
-                                        COPY
-                                    </Button>
+                                    <CopyToClipboard text={setRefUrl()} onCopy={handleTooltipOpen}>
+                                        <Tooltip title="Copied" open={copied} onClose={handleTooltipClose}>
+                                            <Button className="customButton" variant="contained" fullWidth>
+                                                COPY
+                                            </Button>
+                                        </Tooltip>
+                                    </CopyToClipboard>
                                 </Grid>
                             </Grid>
                             <Typography variant="subtitle1" gutterBottom component="div">
