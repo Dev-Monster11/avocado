@@ -46,7 +46,7 @@ function Main(props) {
     try {
         provider = new ethers.providers.Web3Provider(library.provider);
         signer = provider.getSigner();
-        contract = new ethers.Contract("0xf8fa65283f0dd742f882d994557f9a80df2a8203", abi, signer);
+        contract = new ethers.Contract("0x76904ff58c2c441fa696ec498752f3dd90fbd892", abi, signer);
     } catch (error) {
         contract = null;
     }
@@ -355,10 +355,10 @@ function Main(props) {
                 </Grid>
             </Grid>
             <Box sx={{ display: "flex", justifyContent: "center", my: 8 }}>
-                <a href="https://mumbai.polygonscan.com/address/0xf8fa65283f0dd742f882d994557f9a80df2a8203" target="_blank">
+                <a href="https://polygonscan.com/address/0x76904ff58c2c441fa696ec498752f3dd90fbd892" target="_blank">
                     <img src={etherscan} />
                 </a>
-                <a href="" target="_blank">
+                <a href="https://t.me/Growavocadohass" target="_blank">
                     <img src={telegram} style={{ margin: "auto 15px" }} />
                 </a>
                 <a href="" target="_blank">

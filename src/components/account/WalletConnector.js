@@ -42,24 +42,24 @@ const netlist = [
     //     chainsymbol: "BNB",
     //     chaindecimals: 18,
     // },
-    // {
-    //     chaind: 137,
-    //     rpcurl: "https://rpc-mainnet.matic.network",
-    //     blockurl: "https://polygonscan.com/",
-    //     chainname: "Polygon Mainnet",
-    //     chainnetname: "Polygon Mainnet",
-    //     chainsymbol: "MATIC",
-    //     chaindecimals: 18,
-    // },
     {
-        chaind: 80001,
-        rpcurl: "https://rpc-mumbai.matic.today",
-        blockurl: "https://mumbai.polygonscan.com/",
-        chainname: "Mumbai Testnet",
-        chainnetname: "Mumbai Testnet",
+        chaind: 137,
+        rpcurl: "https://rpc-mainnet.matic.network",
+        blockurl: "https://polygonscan.com/",
+        chainname: "Polygon Mainnet",
+        chainnetname: "Polygon Mainnet",
         chainsymbol: "MATIC",
         chaindecimals: 18,
     },
+    // {
+    //     chaind: 80001,
+    //     rpcurl: "https://rpc-mumbai.matic.today",
+    //     blockurl: "https://mumbai.polygonscan.com/",
+    //     chainname: "Mumbai Testnet",
+    //     chainnetname: "Mumbai Testnet",
+    //     chainsymbol: "MATIC",
+    //     chaindecimals: 18,
+    // },
 ];
 
 const defaultethereumconflag = {
