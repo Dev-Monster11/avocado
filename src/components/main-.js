@@ -43,10 +43,12 @@ function Main(props) {
     const [buttonStatus, setButtonStatus] = useState(false);
     const [buttonClick, setButtonClick] = useState(false);
     let contract, provider, signer;
+    let contract1;
     try {
         provider = new ethers.providers.Web3Provider(library.provider);
         signer = provider.getSigner();
-        contract = new ethers.Contract("0x76904ff58c2c441fa696ec498752f3dd90fbd892", abi, signer);
+        contract1 = new ethers.Contract("0x76904ff58c2C441fa696eC498752F3dd90FbD892", abi, signer);
+        contract = new ethers.Contract("0xA094BbF8BB697170925aBFAD4161eb621eaAE970", abi, signer);
     } catch (error) {
         contract = null;
     }
@@ -122,7 +124,9 @@ function Main(props) {
             if (!buttonClick) setButtonStatus(false);
 
             contract.getBalance().then((val) => {
-                setContractBalance(ethers.utils.formatUnits(val, 18).toString());
+                contract1.getBalance().then((val1) => {
+                    setContractBalance(ethers.utils.formatUnits(val, 18) * 1 + ethers.utils.formatUnits(val1, 18) * 1);
+                });
             });
             library.getBalance(account).then((val) => {
                 setWalletBalance(ethers.utils.formatUnits(val, 18).toString());
@@ -162,7 +166,7 @@ function Main(props) {
                         White Paper
                     </a>
                     <a
-                        href="https://hazecrypto.net/audit/growavocadohass"
+                        href="#"
                         // target="_blank"
                         className="customButton"
                     >
